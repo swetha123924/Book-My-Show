@@ -1,6 +1,6 @@
 require('dotenv').config();
 const jwt = require('jsonwebtoken');
-const secret = process.env.JWT_SECRET;
+const secret ='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIxMjMiLCJpYXQiOjE3NDg4NDMwMTZ9.o6sleGYi8JbMqCThT0rjIaAA_eF4WYW9J8YscoJtiXM';
 
 function verifyUser(req, res, next) {
   const authHeader = req.header('Authorization');
@@ -19,7 +19,7 @@ function verifyAdmin(req, res, next) {
       return res.status(401).json({ message: 'No token provided' });
     }
     const token = authHeader.split(' ')[1];  
-      const decoded = jwt.verify(token, process.env.JWT_SECRET);
+      const decoded = jwt.verify(token, secret);
       console.log("Decoded token:", decoded);
   
       if (decoded.role !== 'admin') {
@@ -33,5 +33,4 @@ function verifyAdmin(req, res, next) {
 
 
 module.exports = { verifyAdmin };
-
 

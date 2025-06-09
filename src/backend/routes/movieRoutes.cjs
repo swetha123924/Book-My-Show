@@ -36,10 +36,10 @@ router.post('/', verifyAdmin, async (req, res) => {
 
   try {
     const result = await pool.query(`
-      INSERT INTO movies (title, description, poster_url, release_date, show_time, price, seats, created_by)
-      VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+      INSERT INTO movies (title, description, poster_url, release_date, show_time, price, seats, created_by, duration, genre, language, rating, trailer_url, theater_name)
+      VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)
       RETURNING *
-    `, [title, description, poster_url, release_date, show_time, price, seats, req.user.id]);
+    `, [title, description, poster_url, release_date, show_time, price, seats, req.user.id, duration, genre, language, rating, trailer_url, theater_name]);
 
     res.status(201).json(result.rows[0]);
   } catch (err) {
@@ -61,9 +61,16 @@ router.put('/:id', verifyAdmin, async (req, res) => {
           show_time = $5,
           price = $6,
           seats = $7
-      WHERE id = $8
+          duration = $8,
+          genre = $9,
+          language = $10,
+          rating = $11,
+          trailer_url = $12,
+          theater_name = $13
+          
+      WHERE id = $14
       RETURNING *
-    `, [title, description, poster_url, release_date, show_time, price, seats, req.params.id]);
+    `, [title, description, poster_url, release_date, show_time, price, seats, req.params.id,  duration, genre, language, rating, trailer_url, theater_name]);
 
     if (result.rows.length === 0) {
       return res.status(404).json({ error: 'Movie not found' });
