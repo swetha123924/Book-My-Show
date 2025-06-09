@@ -4,10 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-<<<<<<< HEAD
   "start":"concurrently \"node src/backend/server.cjs\" \"vite\"",
-=======
->>>>>>> 4e769bbc529eccfbc9dbacb8a6ff1d75bf1d48cc
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
