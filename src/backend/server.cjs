@@ -17,7 +17,7 @@ app.use(express.json());
 
 app.use('/api/auth', authRoutes);
 app.use('/api/movies', movieRoutes);
-app.use('/api/theaters', theaterRoutes); // ✅ Enabled
+app.use('/api/theaters', theaterRoutes); 
 app.use('/api/bookings', bookingRoutes);
 app.use('/api/admin/movies', adminMoviesRouter);
 
