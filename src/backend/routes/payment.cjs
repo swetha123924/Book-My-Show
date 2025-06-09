@@ -1,4 +1,5 @@
 
+<<<<<<< HEAD
 const express = require('express');
 const router = express.Router();
 const pool = require('../db'); // PostgreSQL pool
@@ -21,3 +22,5 @@ router.post('/', async (req, res) => {
 });
 
 module.exports = router;
+=======
+>>>>>>> 4e769bbc529eccfbc9dbacb8a6ff1d75bf1d48cc

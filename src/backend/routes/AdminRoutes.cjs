@@ -3,6 +3,7 @@ const router = express.Router();
 const { pool } = require('../db/db.cjs');
 const { verifyAdmin } = require('../Authorization/auth.cjs');
 
+<<<<<<< HEAD
 // CREATE a new movie
 router.post('/', verifyAdmin, async (req, res) => {
   const showTimeOnly = new Date(show_time).toTimeString().split(' ')[0]; 
@@ -124,6 +125,18 @@ router.delete('/:id', verifyAdmin, async (req, res) => {
     console.error('Error deleting movie:', err);
     res.status(500).json({ error: 'Server error' });
   }
+=======
+router.post('/', verifyAdmin, async (req, res) => {
+  const { title, description, poster_url, release_date, show_time, price, seats } = req.body;
+  const createdBy = req.user.id;
+    const result = await pool.query(
+      `INSERT INTO movies (title, description, poster_url, release_date, show_time, price, seats, created_by)
+       VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+       RETURNING *`,
+      [title, description, poster_url, release_date, show_time, price, seats, createdBy]
+    );
+    res.status(201).json(result.rows[0]);
+>>>>>>> 4e769bbc529eccfbc9dbacb8a6ff1d75bf1d48cc
 });
 
 module.exports = router;

@@ -10,13 +10,20 @@ export default function UserHome() {
   const navigate = useNavigate();
 
   useEffect(() => {
+<<<<<<< HEAD
     fetch('http://localhost:5000/api/movies')
+=======
+    fetch('http://localhost:3000/api/movies')
+>>>>>>> 4e769bbc529eccfbc9dbacb8a6ff1d75bf1d48cc
       .then((res) => res.json())
       .then((data) => {
         if (Array.isArray(data)) {
           setMovies(data);
+<<<<<<< HEAD
           console.log('Movies fetched successfully:', data);
           
+=======
+>>>>>>> 4e769bbc529eccfbc9dbacb8a6ff1d75bf1d48cc
         } else {
           console.error('Expected an array but got:', data);
           setError('Failed to load movies: Invalid data format.');
@@ -39,6 +46,7 @@ export default function UserHome() {
           <h1 className="text-4xl font-extrabold text-gray-800">Now Showing</h1>
         </div>
 
+<<<<<<< HEAD
         <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-5 gap-6">
           {movies.length > 0 ? (
             movies.map((movie) => (
@@ -46,6 +54,15 @@ export default function UserHome() {
                 <div className="h-52 bg-gray-100 shadow-2xl rounded-2xl">
                   {movie.poster_url ? (
                     <img src={movie.poster_url} alt={movie.title} className="w-full h-full object-cover rounded-2xl p-2" />
+=======
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-6">
+          {movies.length > 0 ? (
+            movies.map((movie) => (
+              <div key={movie.id} className="bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col">
+                <div className="h-56 bg-gray-200">
+                  {movie.poster_url ? (
+                    <img src={movie.poster_url} alt={movie.title} className="w-full h-full object-contain p-2" />
+>>>>>>> 4e769bbc529eccfbc9dbacb8a6ff1d75bf1d48cc
                   ) : (
                     <div className="w-full h-full flex items-center justify-center">
                       <span className="text-gray-500">No Image</span>
@@ -58,6 +75,7 @@ export default function UserHome() {
                     <span className="font-medium">Release: </span>
                     {movie.release_date || 'TBA'}
                   </p>
+<<<<<<< HEAD
                   <p className="text-gray-500 text-sm mt-2 flex-1">
                     <span className="font-medium">Duration: </span>
                     {movie.duration || 'N/A'} mins
@@ -81,6 +99,10 @@ export default function UserHome() {
 
                   <button onClick={() => navigate(`/movies/${movie.id}`)} className="mt-auto bg-red-600 text-white font-medium py-2 px-4 rounded-lg hover:bg-red-700 transition self-start">
                     Book Ticket
+=======
+                  <button onClick={() => navigate(`/movies/${movie.id}`)} className="mt-auto bg-red-600 text-white font-medium py-2 px-4 rounded-lg hover:bg-red-700 transition self-start">
+                    View Details
+>>>>>>> 4e769bbc529eccfbc9dbacb8a6ff1d75bf1d48cc
                   </button>
                 </div>
               </div>
@@ -93,4 +115,8 @@ export default function UserHome() {
       <Footer />
     </div>
   );
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 4e769bbc529eccfbc9dbacb8a6ff1d75bf1d48cc

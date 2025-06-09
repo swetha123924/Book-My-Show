@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 import { useState, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
@@ -5,15 +6,27 @@ import Header from "./header";
 import Footer from "./footer";
 import { useParams } from "react-router-dom";
 
+=======
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import Header from './header';
+import Footer from './footer';
+import { useNavigate } from 'react-router-dom';
+>>>>>>> 4e769bbc529eccfbc9dbacb8a6ff1d75bf1d48cc
 export default function DetailsPage() {
   const { id } = useParams();
   const [movie, setMovie] = useState(null);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
+<<<<<<< HEAD
 
   useEffect(() => {
     fetch(`http://localhost:5000/api/movies/${id}`)
+=======
+  useEffect(() => {
+    fetch(`http://localhost:3000/api/movies/${id}`)
+>>>>>>> 4e769bbc529eccfbc9dbacb8a6ff1d75bf1d48cc
       .then((res) => {
         if (!res.ok) throw new Error('Failed to fetch movie');
         return res.json();
@@ -30,6 +43,7 @@ export default function DetailsPage() {
   }, [id]);
 
   if (loading) {
+<<<<<<< HEAD
     return <div>Loading...</div>;
   }
 
@@ -40,6 +54,21 @@ export default function DetailsPage() {
   // Check if movie object is available before trying to access its properties
   if (!movie) {
     return <div>Movie not found.</div>;
+=======
+    return (
+      <div className="flex items-center justify-center h-screen bg-gray-50">
+        <p className="text-gray-500 text-lg">Loading movie...</p>
+      </div>
+    );
+  }
+
+  if (error || !movie) {
+    return (
+      <div className="flex items-center justify-center h-screen bg-gray-50">
+        <p className="text-red-500 text-lg">{error || 'Movie not found.'}</p>
+      </div>
+    );
+>>>>>>> 4e769bbc529eccfbc9dbacb8a6ff1d75bf1d48cc
   }
 
   return (
@@ -64,6 +93,7 @@ export default function DetailsPage() {
             <h1 className="text-4xl font-bold text-gray-800">{movie.title}</h1>
             <p className="mt-2 text-gray-600">{movie.description || 'No description available.'}</p>
             <p className="mt-4 text-gray-500">
+<<<<<<< HEAD
               <span className="font-medium">Duration:</span>{' '}
               {movie.duration ? `${movie.duration} mins` : 'N/A'}
             </p>
@@ -95,15 +125,25 @@ export default function DetailsPage() {
               )}
             </p>
             <p className="mt-2 text-gray-500">
+=======
+>>>>>>> 4e769bbc529eccfbc9dbacb8a6ff1d75bf1d48cc
               <span className="font-medium">Release Date:</span>{' '}
               {movie.release_date || 'TBA'}
             </p>
             <button
+<<<<<<< HEAD
               onClick={() => navigate(`/booking/${movie.id}`)}
               className="w-full bg-red-600 text-white font-semibold py-3 rounded-lg hover:bg-red-700 transition mt-6"
             >
               Book Tickets
             </button>
+=======
+                onClick={() => navigate(`/booking/${movie.id}`)}
+                className="w-full bg-red-600 text-white font-semibold py-3 rounded-lg hover:bg-red-700 transition mt-6"
+                >
+                Book Tickets
+                </button>
+>>>>>>> 4e769bbc529eccfbc9dbacb8a6ff1d75bf1d48cc
           </div>
         </div>
       </main>

@@ -17,15 +17,22 @@ export default function Login() {
       ...(isLogin ? {} : { username: formData.get('username'), role: formData.get('role') })
     };
 
+<<<<<<< HEAD
     const res = await fetch(`http://localhost:5000/api/auth/${isLogin ? 'login' : 'register'}`, {
+=======
+    const res = await fetch(`http://localhost:3000/api/auth/${isLogin ? 'login' : 'register'}`, {
+>>>>>>> 4e769bbc529eccfbc9dbacb8a6ff1d75bf1d48cc
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload),
     });
 
     const data = await res.json();
+<<<<<<< HEAD
     localStorage.setItem('token', data.token);
     localStorage.setItem('user', JSON.stringify(data.user));
+=======
+>>>>>>> 4e769bbc529eccfbc9dbacb8a6ff1d75bf1d48cc
     if (!res.ok) return alert(data.message);
 
     if (isLogin) {

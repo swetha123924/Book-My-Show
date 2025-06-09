@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4e769bbc529eccfbc9dbacb8a6ff1d75bf1d48cc
 require('dotenv').config();
 const express = require('express');
 const bcrypt = require('bcrypt');
@@ -6,8 +9,12 @@ const jwt = require('jsonwebtoken');
 const {pool} = require('../db/db.cjs');
 const router = express.Router();
 
+<<<<<<< HEAD
 const JWT_SECRET ='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIxMjMiLCJpYXQiOjE3NDg4NDMwMTZ9.o6sleGYi8JbMqCThT0rjIaAA_eF4WYW9J8YscoJtiXM';
 
+=======
+const JWT_SECRET = process.env.JWT_SECRET;
+>>>>>>> 4e769bbc529eccfbc9dbacb8a6ff1d75bf1d48cc
 
 
 router.post('/register', async (req, res) => {
@@ -74,7 +81,15 @@ router.post('/login', async (req, res) => {
 
     const token = jwt.sign({ id: user.id, role: user.role }, JWT_SECRET, { expiresIn: '1h' });
     res.json({ token, user });
+<<<<<<< HEAD
 });
 
 
 module.exports = router;
+=======
+    localStorage.setItem('token', token); 
+});
+
+
+module.exports = router;
+>>>>>>> 4e769bbc529eccfbc9dbacb8a6ff1d75bf1d48cc

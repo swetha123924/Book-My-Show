@@ -95,7 +95,16 @@ export default function Footer() {
       </div>
       <div className="border-t border-gray-700"></div>
       <div className="max-w-7xl mx-auto px-6 py-6 flex flex-col lg:flex-row justify-between items-center gap-4">
+<<<<<<< HEAD
     
+=======
+        <div className="flex items-center gap-4">
+          <img src="/assets/visa.png" alt="Visa" className="h-6 brightness-75 hover:brightness-100 transition" />
+          <img src="/assets/mastercard.png" alt="MasterCard" className="h-6 brightness-75 hover:brightness-100 transition" />
+          <img src="/assets/amex.png" alt="Amex" className="h-6 brightness-75 hover:brightness-100 transition" />
+          <img src="/assets/paytm.png" alt="Paytm" className="h-6 brightness-75 hover:brightness-100 transition" />
+        </div>
+>>>>>>> 4e769bbc529eccfbc9dbacb8a6ff1d75bf1d48cc
         <p className="text-xs text-gray-500">
           © 2025 BookMyShow. All rights reserved. Designed with ❤️ for movie lovers.
         </p>
